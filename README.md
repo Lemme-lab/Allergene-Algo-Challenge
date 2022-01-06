@@ -8,9 +8,13 @@ Deswegen braucht er ein Programm, das ihm alle Zutaten in Sprachen, die er nicht
 Wir bekommen einen String der wie folgt aussieht:
 
 mxmxvkd kfcds sqjhc nhms (contains dairy, fish)
+
 trh fvjkl sbzzf mxmxvkd (contains dairy)
+
 sqjhc fvjkl (contains soy)
+
 sqjhc mxmxvkd sbzzf (contains fish)
+
 
 Hier kann man sehen das mxmxvkd dairy ist.
 Zuerst müssen wir die allergene Herausfiltern. Dann können wir filtern, ob ein Wort zweimal vorkommt und ob es ein gemeinsames Allergen hat.
