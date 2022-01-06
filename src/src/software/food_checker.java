@@ -19,6 +19,7 @@ public class food_checker {
          String[] split_allergenes;
          String[] allergenes_proce;
          String[] returno;
+         String[] dut;
 
          for (int i = 0; i < input.length; i++) {
 
@@ -63,7 +64,9 @@ public class food_checker {
          }
 
          returno = new String[counter];
+         dut = new String[counter];
          counter = 0;
+         int doub_counter = 0;
 
 
          //Zeilen
@@ -84,7 +87,6 @@ public class food_checker {
                      System.out.println("K:" + k);
                      System.out.println("Zeile: " + zeile);
                      if (zeile != k){
-                         System.out.println("worked");
                          for (int l = 0; l < input[k].length-1 ; l++) {
                              if (input[k][l].equals(wort)) {
                                  System.out.println(wort);
@@ -112,27 +114,28 @@ public class food_checker {
 
                                  try {
                                      if (st2.equals(arr1[0])){
-                                         System.out.println(wort);
-                                         System.out.println(arr1[0]);
+                                         dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr1[0];
                                      }
                                      if (st2.equals(arr1[1])){
-                                         System.out.println(wort);
-                                         System.out.println(arr1[1]);
+                                         dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr1[1];
                                      }
                                      if (st1.equals(arr2[0])){
-                                         System.out.println(wort);
-                                         System.out.println(arr2[0]);
+                                         dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr2[0];
                                      }
                                      if (st1.equals(arr2[1])){
-                                         System.out.println(wort);
-                                         System.out.println(arr2[1]);
+                                         dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr2[1];
                                      }
                                      if (arr1[1].equals(arr2[0])){
+                                         dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr2[0];
+                                     }
+                                     if (arr1[0].equals(arr2[1])){
+                                         dut[counter] = wort;
+                                         returno[counter] = wort + " Allergen: " + arr2[1];
                                      }
                                  }
                                  catch (Exception e){
