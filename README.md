@@ -26,6 +26,9 @@ Hier kann man sehen das mxmxvkd dairy ist.
 Zuerst müssen wir die allergene Herausfiltern. Dann können wir filtern, ob ein Wort zweimal vorkommt und ob es ein gemeinsames Allergen hat.
 Danach geben wir diese aus.
 Der Output sollte hier sein:
+
 mxmxvkd = dairy
+
 sqjhc = fish
+
 fvjkl = soy
