@@ -1,7 +1,6 @@
 package src.software;
 
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class food_checker {
@@ -19,6 +18,7 @@ public class food_checker {
          String allergenes;
          String[] split_allergenes;
          String[] allergenes_proce;
+         String[] returno;
 
          for (int i = 0; i < input.length; i++) {
 
@@ -54,6 +54,18 @@ public class food_checker {
          int stelle2;
          int counter = 0;
 
+
+
+         for (int i = 0; i < input.length; i++) {
+             for (int j = 0; j < input[i].length-1; j++) {
+             counter++;
+             }
+         }
+
+         returno = new String[counter];
+         counter = 0;
+
+
          //Zeilen
          for (int i = 0; i < input.length; i++) {
              zeile = i;
@@ -64,6 +76,7 @@ public class food_checker {
                  System.out.println("Das Wort ist: " + wort);
                  stelle1 = i;
                  stelle2 = j;
+                 counter++;
                  //Geht durch 13 Wörter durch
                  //Wort nehmen und wieder 3 Zeilen durchsuchen
                  for (int k = 0; k < input.length; k++) {
@@ -76,10 +89,53 @@ public class food_checker {
                              if (input[k][l].equals(wort)) {
                                  System.out.println(wort);
                                  System.out.println("Hier: " + k +", "+ l);
-                                 System.out.println(allergen_add[i][j]);
-                                 System.out.println(allergen_add[k][l]);
-                                 if (allergen_add[k][l].equals(allergen_add[i][j])){
+                                 String st1 = allergen_add[i][j];
+                                 String st2 = allergen_add[k][l];
+                                 st1 = st1.substring(1, st1.length() - 1);
+                                 st2 = st2.substring(1, st2.length() - 1);
+                                 String[] arr1 =null;
+                                 String[] arr2 =null;
+                                 try {
+                                     arr1 = st1.split(",");
+                                 }catch (Exception e){
+                                 }
 
+                                 try {
+                                     arr2 = st2.split(",");
+                                 }catch (Exception e){
+                                 }
+
+                                 System.out.println(st1);
+                                 System.out.println(st2);
+                                 System.out.println(Arrays.toString(arr1));
+                                 System.out.println(Arrays.toString(arr2));
+
+                                 try {
+                                     if (st2.equals(arr1[0])){
+                                         System.out.println(wort);
+                                         System.out.println(arr1[0]);
+                                         returno[counter] = wort + " Allergen: " + arr1[0];
+                                     }
+                                     if (st2.equals(arr1[1])){
+                                         System.out.println(wort);
+                                         System.out.println(arr1[1]);
+                                         returno[counter] = wort + " Allergen: " + arr1[1];
+                                     }
+                                     if (st1.equals(arr2[0])){
+                                         System.out.println(wort);
+                                         System.out.println(arr2[0]);
+                                         returno[counter] = wort + " Allergen: " + arr2[0];
+                                     }
+                                     if (st1.equals(arr2[1])){
+                                         System.out.println(wort);
+                                         System.out.println(arr2[1]);
+                                         returno[counter] = wort + " Allergen: " + arr2[1];
+                                     }
+                                     if (arr1[1].equals(arr2[0])){
+                                         returno[counter] = wort + " Allergen: " + arr2[0];
+                                     }
+                                 }
+                                 catch (Exception e){
                                  }
                              }
                          }
@@ -88,10 +144,6 @@ public class food_checker {
                  }
              }
          }
-
-
-
-         return null;
-
+         return returno;
      }
 }

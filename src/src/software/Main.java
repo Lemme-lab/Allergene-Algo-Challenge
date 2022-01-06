@@ -9,10 +9,10 @@ public class Main {
         String input[][] =   {
         {"mxmxvkd", "kfcds",  "sqjhc", "nhms", "contains dairy fish"},
         {"trh", "fvjkl", "sbzzf", "mxmxvkd", "contains dairy"},
-        {"sqjhc", "fvjkl", "contains soy"},
+        {"sqjhc", "fvjkl", "contains fish"},
         {"sqjhc", "mxmxvkd", "sbzzf", "contains fish"}
     };
-        System.out.println(food_checker.solve(input));
+        System.out.println(Arrays.toString(food_checker.solve(input)));
     }
 
 
