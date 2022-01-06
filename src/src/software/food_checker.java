@@ -61,6 +61,7 @@ public class food_checker {
              //Zeile 1-4 Durchgehen
              for (int j = 0; j < input[i].length-1; j++) {
                  wort = input[i][j];
+                 System.out.println("Das Wort ist: " + wort);
                  stelle1 = i;
                  stelle2 = j;
                  //Geht durch 13 Wörter durch
@@ -70,11 +71,16 @@ public class food_checker {
                      System.out.println("K:" + k);
                      System.out.println("Zeile: " + zeile);
                      if (zeile != k){
+                         System.out.println("worked");
                          for (int l = 0; l < input[k].length-1 ; l++) {
                              if (input[k][l].equals(wort)) {
                                  System.out.println(wort);
                                  System.out.println("Hier: " + k +", "+ l);
+                                 System.out.println(allergen_add[i][j]);
+                                 System.out.println(allergen_add[k][l]);
+                                 if (allergen_add[k][l].equals(allergen_add[i][j])){
 
+                                 }
                              }
                          }
                      }
