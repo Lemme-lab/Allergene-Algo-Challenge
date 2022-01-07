@@ -53,7 +53,6 @@ public class food_checker {
              zeile = i;
              for (int j = 0; j < input[i].length-1; j++) {
                  wort = input[i][j];
-                 System.out.println("Das Wort ist: " + wort);
                  stelle1 = i;
                  stelle2 = j;
 
@@ -86,38 +85,68 @@ public class food_checker {
                                  }
 
                                  try {
+                                     arr2[1] = arr2[1].replace(" ", "");
+                                 }catch (Exception e){}
+
+                                 try {
+                                     arr1[1] = arr1[1].replace(" ", "");
+                                 }catch (Exception e){}
+
+
+                                 try {
                                      if (st2.equals(arr1[0])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr1[0];
                                          counter++;
                                      }
+                                 }catch (Exception e){
+
+                                 }
+                                 try {
                                      if (st2.equals(arr1[1])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr1[1];
                                          counter++;
                                      }
+                                 }catch (Exception e){
+
+                                 }
+                                 try {
                                      if (st1.equals(arr2[0])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr2[0];
                                          counter++;
                                      }
+                                 }catch (Exception e){
+
+                                 }
+                                 try {
                                      if (st1.equals(arr2[1])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr2[1];
                                          counter++;
                                      }
-                                     if (arr1[1].equals(arr2[0])){
-                                         dut[counter] = wort;
-                                         returno[counter] = wort + " Allergen: " + arr2[0];
-                                         counter++;
-                                     }
+                                 }catch (Exception e){
+
+                                 }
+
+                                 try {
                                      if (arr1[0].equals(arr2[1])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr2[1];
                                          counter++;
                                      }
+                                 }catch (Exception e){
+
                                  }
-                                 catch (Exception e){
+                                 try {
+                                     if (arr1[0].equals(arr2[1])){
+                                         dut[counter] = wort;
+                                         returno[counter] = wort + " Allergen: " + arr2[1];
+                                         counter++;
+                                     }
+                                 }catch (Exception e){
+
                                  }
                              }
                              doub_bool = false;
