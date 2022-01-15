@@ -4,15 +4,25 @@ package src.software;
 import java.util.Arrays;
 
 public class food_checker {
-     public static String[] solve(String[][] input){
 
+
+     public static String[] solve(String[][] input){
+         String[] returno;
+
+         String[][] allergene_add = pre_proce(input);
+
+         returno =  search_algo(input,allergene_add);
+
+         return post_proce(returno);
+     }
+
+     public static String[][] pre_proce(String[][] input){
          String[][] allergen_add = new String[input.length][4];
          String[] ouput = new String[input.length];
          String allergenes;
          String[] split_allergenes;
          String[] allergenes_proce;
-         String[] returno;
-         String[] dut;
+
 
          for (int i = 0; i < input.length; i++) {
 
@@ -30,7 +40,12 @@ public class food_checker {
                  allergen_add[i][j] = txt;
              }
          }
+         return allergen_add;
+     }
 
+     public static String[] search_algo(String[][] input, String[][] allergen_add){
+         String[] dut;
+         String[] returno;
          int zeile;
          String wort = "";
          int stelle1;
@@ -41,9 +56,10 @@ public class food_checker {
 
          for (int i = 0; i < input.length; i++) {
              for (int j = 0; j < input[i].length-1; j++) {
-             counter++;
+                 counter++;
              }
          }
+
          returno = new String[counter];
          dut = new String[counter];
          counter = 0;
@@ -157,4 +173,20 @@ public class food_checker {
          }
          return returno;
      }
+
+    public static String[] post_proce(String[] returno){
+         int counter = 0;
+        for (int i = 0; i < returno.length; i++) {
+            if(returno[i] != null){
+                counter++;
+            }
+        }
+        String[] post_ouput = new String[counter];
+        for (int i = 0; i < counter; i++) {
+            post_ouput[i] = returno[i];
+        }
+         return post_ouput;
+    }
 }
+
+

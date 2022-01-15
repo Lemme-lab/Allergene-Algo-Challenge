@@ -12,7 +12,7 @@ class food_checkerTest {
             {"nhms", "fvjkl", "contains fish"},
             {"nhms", "mxmxvkd", "sbzzf", "contains fish"}
     };
-    String output1[] = {"mxmxvkd Allergen: dairy", "nhms Allergen: fish", null, null, null, null, null, null, null, null, null, null, null};
+    String output1[] = {"mxmxvkd Allergen: dairy", "nhms Allergen: fish"};
 
 
     String input2[][] =   {
@@ -22,14 +22,14 @@ class food_checkerTest {
             {"mxmxvkd", "nhms", "sbzzf", "contains fish"}
     };
 
-    String output2[] = {"nhms Allergen: dairy", "sbzzf Allergen: fish", null, null, null, null, null, null, null, null, null, null, null};
+    String output2[] = {"nhms Allergen: dairy", "sbzzf Allergen: fish"};
 
     String input3[][] =   {
             {"nhms", "kfcds",  "sqjhc", "mxmxvkd", "contains dairy fish"},
             {"fvjkl", "trh", "sbzzf", "nhms", "contains dairy"},
             {"kfcds", "sbzzf", "contains fish"},
     };
-    String output3[] = {"nhms Allergen: dairy", "kfcds Allergen: fish", null, null, null, null, null, null, null, null};
+    String output3[] = {"nhms Allergen: dairy", "kfcds Allergen: fish"};
 
 
     String input4[][] =   {
@@ -39,7 +39,17 @@ class food_checkerTest {
             {"sqjhc", "mxmxvkd", "sbzzf", "contains fish"}
     };
 
-    String output4[] = {"nhms Allergen: dairy", "kfcds Allergen: fish", "fvjkl Allergene: soy", null, null, null, null, null, null, null};
+    String output4[] = {"nhms Allergen: dairy", "kfcds Allergen: fish", "fvjkl Allergene: sbzzf"};
+
+    String input5[][] =   {
+            {"mxmxvkd", "kfcds",  "sqjhc", "nhms", "contains dairy fish soy"},
+            {"trh", "fvjkl", "sbzzf", "mxmxvkd", "contains dairy"},
+            {"nhms", "fvjkl", "contains fish"},
+            {"nhms", "mxmxvkd", "sbzzf", "contains fish"}
+    };
+    String output5[] = {"mxmxvkd Allergen: dairy", "nhms Allergen: fish", null, null, null, null, null, null, null, null, null, null, null};
+
+
 
 
 
@@ -52,6 +62,8 @@ class food_checkerTest {
     void solve3() {assertArrayEquals(output3, food_checker.solve(input3));}
     @Test
     void solve4() {assertArrayEquals(output3, food_checker.solve(input3));}
+    @Test
+    void solve5() {assertArrayEquals(output3, food_checker.solve(input3));}
 
 
 
