@@ -36,6 +36,7 @@ Hier geben wir jedem Wort das zugehörige Allergen in einem 2D Array.
 
 ### search_algo:
 Hier gehen wir alle Wörter durch und vergleichen die Allergene. 
+
 Wenn sie gleich sind und das Wort noch nicht gefunden wurde, geben wir es aus 
 und speichern es ab. 
 
