@@ -5,24 +5,26 @@ import java.util.Arrays;
 
 public class food_checker {
 
+    static String[][] allergen_add;
+    static String[] ouput;
+    static String allergenes;
+    static String[] split_allergenes;
+    static String[] allergenes_proce;
+    static String[] found_words;
 
      public static String[] solve(String[][] input){
          String[] returno;
 
          String[][] allergene_add = pre_proce(input);
-
          returno =  search_algo(input,allergene_add);
+         //search_hidden(returno, input);
 
          return post_proce(returno);
      }
 
      public static String[][] pre_proce(String[][] input){
-         String[][] allergen_add = new String[input.length][4];
-         String[] ouput = new String[input.length];
-         String allergenes;
-         String[] split_allergenes;
-         String[] allergenes_proce;
-
+        allergen_add = new String[input.length][4];
+        ouput = new String[input.length];
 
          for (int i = 0; i < input.length; i++) {
 
@@ -61,6 +63,7 @@ public class food_checker {
          }
 
          returno = new String[counter];
+         found_words = new String[counter];
          dut = new String[counter];
          counter = 0;
          boolean doub_bool = false;
@@ -113,6 +116,7 @@ public class food_checker {
                                      if (st2.equals(arr1[0])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr1[0];
+                                         found_words[counter] = wort;
                                          counter++;
                                      }
                                  }catch (Exception e){
@@ -122,6 +126,7 @@ public class food_checker {
                                      if (st2.equals(arr1[1])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr1[1];
+                                         found_words[counter] = wort;
                                          counter++;
                                      }
                                  }catch (Exception e){
@@ -131,6 +136,7 @@ public class food_checker {
                                      if (st1.equals(arr2[0])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr2[0];
+                                         found_words[counter] = wort;
                                          counter++;
                                      }
                                  }catch (Exception e){
@@ -140,6 +146,7 @@ public class food_checker {
                                      if (st1.equals(arr2[1])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr2[1];
+                                         found_words[counter] = wort;
                                          counter++;
                                      }
                                  }catch (Exception e){
@@ -150,6 +157,7 @@ public class food_checker {
                                      if (arr1[0].equals(arr2[1])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr2[1];
+                                         found_words[counter] = wort;
                                          counter++;
                                      }
                                  }catch (Exception e){
@@ -159,6 +167,7 @@ public class food_checker {
                                      if (arr1[0].equals(arr2[1])){
                                          dut[counter] = wort;
                                          returno[counter] = wort + " Allergen: " + arr2[1];
+                                         found_words[counter] = wort;
                                          counter++;
                                      }
                                  }catch (Exception e){
@@ -174,7 +183,38 @@ public class food_checker {
          return returno;
      }
 
-    public static String[] post_proce(String[] returno){
+     /*public static String[] search_hidden(String[] returno,String[][] input){
+
+         int counter = 0;
+
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[i].length; j++) {
+
+                for (int k = 0; k < found_words.length; k++) {
+                    if(found_words[k] != null){
+                        for (int l = 0; l < input[i].length; l++) {
+                            if(found_words[k] == input[i][l]){
+                                counter++;
+                                System.out.println(counter);
+                            }
+                        }
+                    }
+                }
+                if(counter ==  input[i].length - 2){
+                    System.out.println("found");
+                    counter = 0;
+                }else{
+                    counter = 0;
+                }
+
+            }
+        }
+
+
+      return null;
+    }*/
+
+     public static String[] post_proce(String[] returno){
          int counter = 0;
         for (int i = 0; i < returno.length; i++) {
             if(returno[i] != null){
@@ -187,6 +227,8 @@ public class food_checker {
         }
          return post_ouput;
     }
+
+
 }
 
 
